@@ -1,0 +1,59 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  border: none;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  }
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #444;
+}
+
+input.form-control,
+textarea.form-control {
+  border-radius: 0.75rem;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  transition: border-color 0.3s ease-in-out;
+
+  &:focus {
+    border-color: #6f42c1;
+    box-shadow: 0 0 0 0.2rem rgba(111, 66, 193, 0.2);
+  }
+}
+
+button.btn-success {
+  background-color: #6f42c1;
+  border: none;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #5a32a3;
+  }
+}
+
+.text-danger {
+  font-size: 0.85rem;
+  font-style: italic;
+}

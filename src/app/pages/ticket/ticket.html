@@ -1,0 +1,98 @@
+<div class="container mt-5">
+  <div class="card shadow p-4">
+    <h2 class="text-center mb-4">
+      <i class="bi bi-ticket-perforated-fill text-warning"></i>
+      <span class="text-dark fw-bold">Ticket Oluştur</span>
+    </h2>
+
+    <form #ticketForm="ngForm" (ngSubmit)="submitTicket()" novalidate>
+
+      <!-- Ad Soyad -->
+      <div class="mb-3">
+        <label class="form-label">Ad Soyad</label>
+        <input
+          type="text"
+          class="form-control"
+          name="senderFullName"
+          [(ngModel)]="ticketData.senderFullName"
+          maxlength="50"
+          required
+          #fullName="ngModel"
+          placeholder="Adınızı ve soyadınızı girin"
+        />
+        <div class="text-danger mt-1" *ngIf="fullName.invalid && fullName.touched">
+          <small *ngIf="fullName.errors?.['required']">Bu alan zorunludur.</small>
+          <small *ngIf="fullName.errors?.['maxlength']">En fazla 50 karakter girebilirsiniz.</small>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="senderEmail"
+          [(ngModel)]="ticketData.senderEmail"
+          maxlength="50"
+          required
+          #email="ngModel"
+          placeholder="E-posta adresinizi girin"
+        />
+        <div class="text-danger mt-1" *ngIf="email.invalid && email.touched">
+          <small *ngIf="email.errors?.['required']">Email zorunludur.</small>
+          <small *ngIf="email.errors?.['email']">Geçerli bir email giriniz.</small>
+          <small *ngIf="email.errors?.['maxlength']">En fazla 50 karakter girebilirsiniz.</small>
+        </div>
+      </div>
+
+      <!-- Başlık -->
+      <div class="mb-3">
+        <label class="form-label">Başlık</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="ticketData.title"
+          maxlength="100"
+          required
+          #title="ngModel"
+          placeholder="Kısa bir başlık yazın"
+        />
+        <div class="text-danger mt-1" *ngIf="title.invalid && title.touched">
+          <small *ngIf="title.errors?.['required']">Başlık zorunludur.</small>
+          <small *ngIf="title.errors?.['maxlength']">En fazla 100 karakter girebilirsiniz.</small>
+        </div>
+      </div>
+
+      <!-- Açıklama -->
+      <div class="mb-4">
+        <label class="form-label">Açıklama</label>
+        <textarea
+          class="form-control"
+          name="description"
+          rows="4"
+          [(ngModel)]="ticketData.description"
+          required
+          minlength="10"
+          #desc="ngModel"
+          placeholder="Açıklamanızı detaylıca yazın"
+        ></textarea>
+        <div class="text-danger mt-1" *ngIf="desc.invalid && desc.touched">
+          <small *ngIf="desc.errors?.['required']">Açıklama zorunludur.</small>
+          <small *ngIf="desc.errors?.['minlength']">En az 10 karakter girilmelidir.</small>
+        </div>
+      </div>
+
+      <!-- Gönder Butonu -->
+      <button
+        class="btn btn-success w-100"
+        [disabled]="ticketForm.invalid"
+        type="submit"
+      >
+        <i class="bi bi-send-fill"></i> Gönder
+      </button>
+
+    </form>
+  </div>
+</div>
