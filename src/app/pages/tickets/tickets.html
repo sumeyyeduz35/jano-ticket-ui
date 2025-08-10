@@ -1,3 +1,16 @@
-<!-- tickets.html -->
-<h2>Ticket Sayfası</h2>
-<p>Burada oluşturulan ticketlar görünecek.</p>
+<h2>Ticket Listesi</h2>
+
+<div *ngIf="loading">Yükleniyor...</div>
+
+<div *ngIf="!loading && tickets.length === 0">
+  Henüz ticket yok.
+</div>
+
+<ul *ngIf="!loading && tickets.length > 0">
+  <li *ngFor="let t of tickets">
+    <strong>{{ t.title }}</strong> - {{ t.senderFullName }}
+    <br>
+    <small>{{ t.description }}</small>
+    <hr>
+  </li>
+</ul>
